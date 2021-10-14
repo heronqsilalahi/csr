@@ -67,7 +67,7 @@ echo "SAN = "$SAN
 country=ID
 state=Jakarta
 locality=DKI
-organization=MylabCert
+organization=IT Infra
 organizationalunit=Virtual
 email=admin@$domain
 
@@ -81,7 +81,7 @@ then
 fi
 #Generate Key & CSR
 echo "${reset}"
-printf "\n====Generating Private Key & CSR for $fqdn====\n"
+printf "${yellow}Generating Private Key & CSR for $fqdn\n${reset}"
 echo "${cyan}"
 set -x
 openssl req -newkey rsa:2048 -nodes -keyout $ssl_directory/$domain/$fqdn.key -out $ssl_directory/$domain/$fqdn.csr -new -sha256 \
