@@ -23,26 +23,26 @@ printf "╚═╗ ║ ╠═╣╠╦╝ ║  \n"
 printf "╚═╝ ╩ ╩ ╩╩╚═ ╩  \n"
 
 #Required
-echo "${reset}Enter your domain name (e.g: ${cyan} vistakom.local ${reset})"
+echo "${reset}Enter your domain name (e.g: ${cyan}vistakom.local${reset})"
 echo -n "Domain Name: ${yellow}"
 read -r domain
 while [ -z $domain ]; do
-        echo -n "${red}[Mandatory] Domain Name: ${yellow}"
+        echo -n "${red}[Mandatory]${reset}Domain Name: ${yellow}"
         read -r domain
 done
-echo "${reset}Enter hostname of your server/apps (e.g: ${cyan} webmail ${reset})"
+echo "${reset}Enter hostname of your server/apps (e.g: ${cyan}webmail${reset})"
 echo -n "Hostname: ${yellow}"
 read -r hostname
 while [ -z $hostname ]; do
-        echo -n "${red}[Mandatory]Hostname: ${yellow}"
+        echo -n "${red}[Mandatory]${reset}Hostname: ${yellow}"
         read -r hostname
 done
 
-echo "${reset}[Optional] Enter IP Address of your server/apps (e.g: ${cyan} 192.168.1.1 ${reset})"
+echo "${reset}[Optional] Enter IP Address of your server/apps (e.g: ${cyan}192.168.1.1${reset})"
 echo -n "${reset}IP Address: ${yellow}"
 read -r ip
 
-echo "${reset}[Optional] Enter your extra dns with format ${cyan}DNS:mail.vistakom.local,DNS:webmail.vistakom.local,DNS:smtp.vistakom.local${reset} "
+echo "${reset}[Optional] Enter your extra dns with format ${cyan}DNS:mail.vistakom.local,DNS:webmail.vistakom.local,DNS:smtp.vistakom.local${reset}"
 echo -n "Extra DNS: ${yellow}"
 read -r dns
 echo "${reset}"
@@ -92,10 +92,10 @@ openssl req -in $ssl_directory/$domain/$fqdn.csr -noout -text
 chmod 400 $ssl_directory/$domain/$fqdn.key
 
 set +x
-echo "${cyan}$================= Your Private Key :$ssl_directory/$domain/$fqdn.key ===================${reset}${green}"
+echo "${cyan}Your Private Key :$ssl_directory/$domain/$fqdn.key ${reset}${green}"
 cat $ssl_directory/$domain/$fqdn.key
 echo "${reset}"
-echo "${cyan}$================= Your CSR  :$ssl_directory/$domain/$fqdn.csr ==================${reset}${green}"
+echo "${cyan}Your CSR  :$ssl_directory/$domain/$fqdn.csr ${reset}${green}"
 cat $ssl_directory/$domain/$fqdn.csr
 echo "${reset}"
 cd $ssl_directory/$domain
