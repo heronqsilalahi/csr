@@ -92,13 +92,13 @@ openssl req -in $ssl_directory/$domain/$fqdn.csr -noout -text
 chmod 400 $ssl_directory/$domain/$fqdn.key
 
 set +x
-echo "${cyan}${bgyellow}================= Your Private Key :$ssl_directory/$domain/$fqdn.key ===================${reset}${green}"
+echo "${cyan}$================= Your Private Key :$ssl_directory/$domain/$fqdn.key ===================${reset}${green}"
 cat $ssl_directory/$domain/$fqdn.key
 echo "${reset}"
-echo "${cyan}${bgyellow}================= Your CSR  :$ssl_directory/$domain/$fqdn.csr ==================${reset}${green}"
+echo "${cyan}$================= Your CSR  :$ssl_directory/$domain/$fqdn.csr ==================${reset}${green}"
 cat $ssl_directory/$domain/$fqdn.csr
 echo "${reset}"
-
+cd $ssl_directory/$domain
 printf "╔═╗╔╗╔╔╦╗ \n"
 printf "║╣ ║║║ ║║ \n"
 printf "╚═╝╝╚╝═╩╝ \n"
