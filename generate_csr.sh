@@ -84,19 +84,19 @@ echo "${reset}"
 printf "${yellow}Generating Private Key & CSR for $fqdn\n${reset}"
 echo "${cyan}"
 set -x
-openssl req -newkey rsa:2048 -nodes -keyout $ssl_directory/$domain/$fqdn.key -out $ssl_directory/$domain/$fqdn.csr -new -sha256 \
+openssl req -newkey rsa:2048 -nodes -keyout $ssl_directory/$domain/$hostname.key -out $ssl_directory/$domain/$hostname.csr -new -sha256 \
     -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=""$cn""/emailAddress=$email" \
     -reqexts SAN -config <(cat $ssl_directory/.conf <(printf "[SAN]\nsubjectAltName=""$SAN"))
 #openssl req -out sslcert.csr -newkey rsa:2048 -nodes -keyout private.key -config san.cnf
-openssl req -in $ssl_directory/$domain/$fqdn.csr -noout -text
-chmod 400 $ssl_directory/$domain/$fqdn.key
+openssl req -in $ssl_directory/$domain/$hostname.csr -noout -text
+chmod 400 $ssl_directory/$domain/$hostname.key
 
 set +x
-echo "${cyan}Your Private Key :$ssl_directory/$domain/$fqdn.key ${reset}${green}"
-cat $ssl_directory/$domain/$fqdn.key
+echo "${cyan}Your Private Key :$ssl_directory/$domain/$hostname.key ${reset}${green}"
+cat $ssl_directory/$domain/$hostname.key
 echo "${reset}"
-echo "${cyan}Your CSR  :$ssl_directory/$domain/$fqdn.csr ${reset}${green}"
-cat $ssl_directory/$domain/$fqdn.csr
+echo "${cyan}Your CSR  :$ssl_directory/$domain/$hostname.csr ${reset}${green}"
+cat $ssl_directory/$domain/$hostname.csr
 echo "${reset}"
 cd $ssl_directory/$domain
 printf "╔═╗╔╗╔╔╦╗ \n"
