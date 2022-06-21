@@ -72,7 +72,7 @@ organizationalunit=Virtual
 email=admin@$domain
 
 # SSL Home Directory
-ssl_directory="/var/ssl"
+ssl_directory="/tmp/openssl"
 mkdir -p $ssl_directory/$domain
 conf=$ssl_directory/.conf
 if [ ! -f $conf ]
@@ -98,7 +98,7 @@ echo "${reset}"
 echo "${cyan}Your CSR  :$ssl_directory/$domain/$hostname.csr ${reset}${green}"
 cat $ssl_directory/$domain/$hostname.csr
 echo "${reset}"
-cd $ssl_directory/$domain
+cd $ssl_directory
 printf "╔═╗╔╗╔╔╦╗ \n"
 printf "║╣ ║║║ ║║ \n"
 printf "╚═╝╝╚╝═╩╝ \n"
