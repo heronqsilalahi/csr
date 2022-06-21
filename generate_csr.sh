@@ -42,7 +42,7 @@ echo "${reset}[Optional] Enter IP Address of your server/apps (e.g: ${cyan}192.1
 echo -n "${reset}IP Address: ${yellow}"
 read -r ip
 
-echo "${reset}[Optional] Enter your extra dns with format ${cyan}DNS:mail.vistakom.local,DNS:webmail.vistakom.local,DNS:smtp.vistakom.local${reset}"
+echo "${reset}[Optional] Enter your extra dns with format ${cyan}DNS:mail.company.local,DNS:webmail.company.local,DNS:smtp.company.local${reset}"
 echo -n "Extra DNS: ${yellow}"
 read -r dns
 echo "${reset}"
@@ -72,7 +72,7 @@ organizationalunit=Virtual
 email=admin@$domain
 
 # SSL Home Directory
-ssl_directory="/var/openssl"
+ssl_directory="/var/ssl"
 mkdir -p $ssl_directory/$domain
 conf=$ssl_directory/.conf
 if [ ! -f $conf ]
