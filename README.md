@@ -28,5 +28,5 @@ Executable
 
 Conf, CSR & Private Key
 ```shell
-/var/openssl/
+/tmp/openssl/
 ```
