@@ -23,7 +23,7 @@ printf "╚═╗ ║ ╠═╣╠╦╝ ║  \n"
 printf "╚═╝ ╩ ╩ ╩╩╚═ ╩  \n"
 
 #Required
-echo "${reset}Enter your domain name (e.g: ${cyan}vistakom.local${reset})"
+echo "${reset}Enter your domain name (e.g: ${cyan}company.local${reset})"
 echo -n "Domain Name: ${yellow}"
 read -r domain
 while [ -z $domain ]; do
