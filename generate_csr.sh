@@ -136,7 +136,7 @@ then
 		read -r public
 	done
         host="${public##*/}"
-        host="${filename%.*}"
+        host="${host%.*}"
 
 	echo -n "${reset}Private key file name (e.g: ${cyan}mail.key or /home/user/folder/mail.key${reset}): ${yellow}"
 	read -r private
