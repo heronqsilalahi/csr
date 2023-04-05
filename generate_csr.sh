@@ -88,7 +88,7 @@ then
 	country=ID
 	state=Jakarta
 	locality=DKI
-	organization=IT Security
+	organization="IT Security"
 	organizationalunit=AnyWhere
 	email=admin@$domain
 
@@ -119,6 +119,7 @@ then
 	echo "${cyan}Your CSR  :$ssl_directory/$domain/$hostname.csr ${reset}${green}"
 	cat $ssl_directory/$domain/$hostname.csr
 	echo "${reset}"
+	cd $ssl_directory/$domain
 
 #Create PFX Ceertificate
 elif [ "$action" = "2" ] 
