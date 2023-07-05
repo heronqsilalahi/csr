@@ -57,9 +57,10 @@ then
 		read -r hostname
 	done
 
-	echo "${reset}[Optional] Enter IP Address of your server/apps (e.g: ${cyan}192.168.1.1${reset})"
+	echo "${reset}[Optional] Enter IP Address of your server/apps. Separate multiple IP by comma (e.g: ${cyan}192.168.1.1,192.168.1.2${reset})"
 	echo -n "${reset}IP Address: ${yellow}"
-	read -r ip
+	read -r listip
+ 	ip=$(echo "$listip" | sed 's/\([0-9.]\+\)/IP:\1/g')
 
 	echo "${reset}[Optional] Enter your extra dns (SAN) separated by comma ${cyan}mail.$domain,webmail.$domain,smtp.$domain${reset}"
 	echo -n "Extra DNS (SAN): ${yellow}"
@@ -77,9 +78,9 @@ then
 		SAN="DNS:$fqdn,DNS:$hostname,$dns1"
 	elif [ -z "$dns" ]
 	then
-		SAN="DNS:$fqdn,DNS:$hostname,IP:$ip"
+		SAN="DNS:$fqdn,DNS:$hostname,$ip"
 	else
-		SAN="DNS:$fqdn,DNS:$hostname,$dns1,IP:$ip"
+		SAN="DNS:$fqdn,DNS:$hostname,$dns1,$ip"
 	fi
 	echo "FQDN = "$fqdn
 	echo "SAN = "$SAN
