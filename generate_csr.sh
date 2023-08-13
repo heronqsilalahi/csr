@@ -42,7 +42,11 @@ done
 if [ "$action" = "1" ] 
 then
 	#Required
-	echo -n "${red}[Mandatory]${reset}Domain Name [${yellow}$recent_directory_name]${reset}: ${yellow}"
+ 	ssl_directory="/tmp/openssl"
+ 	recent_directory=$(ls -td -- $ssl_directory/*/ 2>/dev/null | head -n 1 | sed 's#/##')
+	recent_directory_name=$(basename "$recent_directory")
+
+	echo -n "${red}[Mandatory]${reset}Domain Name [${yellow}$recent_directory_name${reset}]: ${yellow}"
 	read -r domain
 	echo "${reset}"
 	# If the input is empty, use the most recent directory name if available
@@ -104,7 +108,6 @@ then
 	email=admin@$domain
 
 	# SSL Home Directory
-	ssl_directory="/tmp/openssl"
 	mkdir -p $ssl_directory/$domain
 	conf=$ssl_directory/.conf
 	if [ ! -f $conf ]
