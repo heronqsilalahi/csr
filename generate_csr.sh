@@ -133,8 +133,7 @@ then
 	echo "${cyan}Your CSR  :$ssl_directory/$domain/$hostname.csr ${reset}${green}"
 	cat $ssl_directory/$domain/$hostname.csr
 	echo "${reset}"
-	cd $ssl_directory
- 	cd $domain
+ 	cd "$ssl_directory/$domain" || exit
 
 #Create PFX Ceertificate
 elif [ "$action" = "2" ] 
