@@ -1,5 +1,4 @@
 echo "Install Generate-CSR scipt"
-set -x
 ssl_directory="/tmp/openssl"
 # Remove previous version
 rm -rf $ssl_directory
@@ -11,7 +10,6 @@ wget https://raw.githubusercontent.com/heronqsilalahi/csr/main/csr.conf -O $ssl_
 wget https://raw.githubusercontent.com/heronqsilalahi/csr/main/generate_csr.sh -O /usr/local/bin/Generate-CSR
 sudo chmod +x /usr/local/bin/Generate-CSR
 rm -rf install.sh
-set +x
 echo "Script install successfully"
-echo "Run command 'Generate-CSR' to start! \n"
+echo "Run command 'Generate-CSR' to start!"
 echo " "
