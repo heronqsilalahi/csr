@@ -42,13 +42,23 @@ done
 if [ "$action" = "1" ] 
 then
 	#Required
-	echo "${reset}Enter your domain name (e.g: ${cyan}company.local${reset})"
-	echo -n "Domain Name: ${yellow}"
+	echo -n "${red}[Mandatory]${reset}Domain Name [${yellow}$recent_directory_name]${reset}: ${yellow}"
 	read -r domain
-	while [ -z $domain ]; do
-		echo -n "${red}[Mandatory]${reset}Domain Name: ${yellow}"
-		read -r domain
-	done
+	echo "${reset}"
+	# If the input is empty, use the most recent directory name if available
+	if [ -z "$domain" ]; then
+		if [ -n "$recent_directory_name" ]; then
+			domain="$recent_directory_name"
+		else
+
+			while [ -z "$domain" ]; do
+				echo -n "${red}[Mandatory]${reset}Domain Name: ${yellow}"
+				read -r domain
+				echo "${reset}"
+			done
+		fi
+	fi
+
 	echo "${reset}Enter hostname of your server/apps (e.g: ${cyan}webmail${reset})"
 	echo -n "Hostname: ${yellow}"
 	read -r hostname
