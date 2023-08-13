@@ -1,8 +1,6 @@
 echo "Install Generate-CSR scipt"
 ssl_directory="/tmp/openssl"
 # Remove previous version
-rm -rf $ssl_directory
-rm -rf /var/openssl
 rm -rf /usr/local/bin/Generate-CSR
 mkdir -p $ssl_directory
 chmod 777 -R $ssl_directory
